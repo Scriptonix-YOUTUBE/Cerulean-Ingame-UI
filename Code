@@ -21,6 +21,8 @@ PlaceIcon.BorderSizePixel = 3
 
 PlaceIcon.BackgroundTransparency = 0
 
+LoadingImage.BackgroundColor3 = Color3.fromRGB(200,200,200)
+
 LoadingImage.Image = 'rbxassetid://2093843497' 
 
 LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
