@@ -1,0 +1,47 @@
+
+print'\nSynapse UI: Version 1\nloaded'
+
+
+
+local CoreGui = game:GetService'CoreGui'
+
+local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
+
+local BlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame' 
+
+local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
+
+local PlaceIcon = BlackFrame:WaitForChild'InfoFrame':WaitForChild'PlaceIcon'
+
+
+
+PlaceIcon.BorderColor3 = Color3.fromRGB(53,53,53)
+
+PlaceIcon.BorderSizePixel = 3
+
+PlaceIcon.BackgroundTransparency = 0
+
+LoadingImage.Image = 'rbxassetid://2093843497' 
+
+LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
+
+BlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
+
+BlackFrame:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
+	local Transparency = BlackFrame.Transparency
+	if Transparency ~= 0 then
+		PlaceIcon.BackgroundTransparency = Transparency
+	end
+end)
+
+
+
+local TopBar = CoreGui:WaitForChild'TopBar'
+
+local Icon = TopBar:WaitForChild'TopBarFrame':WaitForChild'LeftFrame':WaitForChild'MenuIcon':WaitForChild'Background':WaitForChild'Icon'
+
+
+print'\nSynapse x loading screen done'
+
+
+Icon.Image = 'rbxassetid://2530517466'
