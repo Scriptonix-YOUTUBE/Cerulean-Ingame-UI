@@ -3,7 +3,7 @@ print'\nSynapse UI: Version 1\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui'
+local CoreGui = game:GetService'CoreGui' 
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
