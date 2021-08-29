@@ -87,10 +87,8 @@ end
 
 local function Transparency(o)
    o:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
-	local Transparency = o.Transparency
-	if Transparency ~= 0 then
-		o.BackgroundTransparency = Transparency
-	end
+	local Transparency = BlackFrame.Transparency
+	o.BackgroundTransparency = Transparency
    end)
 end
 
