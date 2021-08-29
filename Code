@@ -1,5 +1,5 @@
 
-print'\nSynapse UI: Version 2\nloaded' 
+print'\nSynapse UI: Version 1.2\nloaded' 
 
 
 
@@ -36,6 +36,50 @@ local function getthumb(n)
 	end
 end
 
+local function createOtherFrame(m)
+	
+	local desc = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Description
+
+
+	local OtherFrame = Instance.new("Frame")
+	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+	local TextLabel = Instance.new("TextLabel")
+	local UiMessagePadding = Instance.new("UIPadding")
+
+
+	OtherFrame.Name = "OtherFrame"
+	OtherFrame.Parent = m
+	OtherFrame.AnchorPoint = Vector2.new(1, 1)
+	OtherFrame.BackgroundColor3 = Color3.fromRGB(87, 86, 88)
+	OtherFrame.BorderSizePixel = 3
+	OtherFrame.Position = UDim2.new(0.892091691, 0, 0.598457098, 0)
+	OtherFrame.Size = UDim2.new(0.240514442, 0, 0.512000084, 0)
+	OtherFrame.ZIndex = 2
+
+	UIAspectRatioConstraint.Parent = OtherFrame
+
+	TextLabel.Parent = OtherFrame
+	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.BackgroundTransparency = 1.000
+	TextLabel.Position = UDim2.new(0.0377249122, 0, 0.0214355346, 0)
+	TextLabel.Size = UDim2.new(0, 291, 0, 301)
+	TextLabel.ZIndex = 9999
+	TextLabel.Text = desc
+	TextLabel.TextColor3 = Color3.fromRGB(239, 239, 239)
+	TextLabel.TextSize = 14.000
+	TextLabel.TextStrokeTransparency = 0.000
+	TextLabel.TextWrapped = true
+	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+	TextLabel.TextYAlignment = Enum.TextYAlignment.Top
+
+	UiMessagePadding.Name = "UiMessagePadding"
+	UiMessagePadding.Parent = OtherFrame
+	UiMessagePadding.PaddingBottom = UDim.new(0, 25)
+end
+
+
+
+createOtherFrame(InfoFrame)
 
 
 PlaceThumbnail.Size = UDim2.new(.366,0,.55,0)
