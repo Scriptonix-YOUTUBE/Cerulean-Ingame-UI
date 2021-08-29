@@ -3,7 +3,7 @@ print'\nSynapse UI: Version 2\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui' 
+local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
@@ -23,6 +23,30 @@ local UiMessage = InfoFrame:WaitForChild'UiMessageFrame':WaitForChild'UiMessage'
 
 local UIListLayout = InfoFrame:WaitForChild'UIListLayout'
 
+local PlaceThumbnail = PlaceIcon:Clone()
+
+
+
+local function getthumb(n)
+	local yes,re = pcall(function()
+		PlaceThumbnail.Image = 'https://www.roblox.com/asset-thumbnail/image?assetId='..n..'&width=768&height=432&format=png'
+	end)
+	if not yes then
+		print(re)
+	end
+end
+
+
+
+PlaceThumbnail.Size = UDim2.new(.366,0,.55,0)
+
+PlaceThumbnail.Name = 'thumbstick'
+
+PlaceThumbnail.UISizeConstraint.MaxSize = Vector2.new(2000,500)
+
+PlaceThumbnail.UIAspectRatioConstraint.AspectRatio = 2
+
+getthumb(game.GameId)
 
 
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
