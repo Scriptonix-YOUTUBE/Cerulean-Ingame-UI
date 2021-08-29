@@ -3,7 +3,7 @@ print'\nSynapse UI: Version 2\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui' 
+local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
@@ -11,7 +11,7 @@ local BlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame'
 
 local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
 
-local InfoFrame = BlackFrame:WaitForChild'InfoFrame' 
+local InfoFrame = BlackFrame:WaitForChild'InfoFrame'
 
 local PlaceIcon = InfoFrame:WaitForChild'PlaceIcon'
 
@@ -46,6 +46,8 @@ PlaceThumbnail.Name = 'thumbstick'
 PlaceThumbnail.UISizeConstraint.MaxSize = Vector2.new(2000,500)
 
 PlaceThumbnail.UIAspectRatioConstraint.AspectRatio = 2
+
+PlaceThumbnail.ZIndex = 99999999
 
 getthumb(tostring(game.GameId))
 
