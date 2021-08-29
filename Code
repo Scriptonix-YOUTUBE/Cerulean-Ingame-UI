@@ -11,7 +11,7 @@ local BlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame'
 
 local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
 
-local InfoFrame = BlackFrame:WaitForChild'InfoFrame'
+local InfoFrame = BlackFrame:WaitForChild'InfoFrame' 
 
 local PlaceIcon = InfoFrame:WaitForChild'PlaceIcon'
 
