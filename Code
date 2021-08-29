@@ -1,9 +1,9 @@
 
-print'\nSynapse UI: Version 2\nloaded' 
+print'\nSynapse UI: Version 2\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui' 
+local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
@@ -85,6 +85,8 @@ PlaceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 
 PlaceLabel.TextXAlignment = Enum.TextXAlignment.Left
 
+PlaceLabel.Size = UDim2.new(1,0,.09,80)
+
 
 PlaceIcon.BorderColor3 = Color3.fromRGB(53,53,53)
 
@@ -93,6 +95,8 @@ PlaceIcon.BorderSizePixel = 3
 PlaceIcon.BackgroundTransparency = 0
 
 PlaceIcon.BackgroundColor3 = Color3.fromRGB(0,0,0)
+
+PlaceIcon.UISizeConstraint.MaxSize = Vector2.new(500,500)
 
 
 LoadingImage.BackgroundColor3 = Color3.fromRGB(200,200,200)
