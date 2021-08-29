@@ -30,7 +30,7 @@ CreatorLabel.Font = Enum.Font.Code
 
 CreatorLabel.TextColor3 = Color3.fromRGB(112, 112, 112)
 
-CreatorLabel.TextStrokeTransparency = 0.5
+CreatorLabel.TextStrokeTransparency = 1
 
 PlaceIcon.BorderColor3 = Color3.fromRGB(53,53,53)
 
