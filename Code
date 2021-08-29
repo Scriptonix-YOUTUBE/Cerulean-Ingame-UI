@@ -60,12 +60,12 @@ UIListLayout.FillDirection = Enum.FillDirection.Vertical
 
 InfoFrame.Position = UDim2.new(0.5,0,0.5,0)
 
-InfoFrame.Size = UDim2.new(1,0,1,0)
+InfoFrame.Size = UDim2.new(.817,0,.951,0)
 
 InfoFrame.UIAspectRatioConstraint.AspectRatio = 2
 
 
-UiMessage.Font = Enum.Font.Nunito 
+UiMessage.Font = Enum.Font.Nunito
 
 UiMessage.TextXAlignment = Enum.TextXAlignment.Left
 
