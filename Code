@@ -1,5 +1,5 @@
 
-print'\nSynapse UI: Version 1\nloaded'
+print'\nSynapse UI: Version 2\nloaded'
 
 
 
@@ -32,7 +32,7 @@ UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
 UIListLayout.FillDirection = Enum.FillDirection.Vertical
 
 
-InfoFrame.Position = UDim2.new(0.39,0,0.634,0)
+InfoFrame.Position = UDim2.new(.383,0,.531, 0)
 
 
 UiMessage.Font = Enum.Font.Nunito
