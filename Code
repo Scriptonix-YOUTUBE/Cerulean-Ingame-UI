@@ -87,8 +87,12 @@ end
 
 local function Transparency(o)
    BlackFrame:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
-	local Transparency = BlackFrame.Transparency
-	o.BackgroundTransparency = Transparency
+	local Transparency = BlackFrame.BackgroundTransparency
+	if o:IsA('TextLabel then
+	    o.TextTransparency = Transparency
+	else
+	    o.BackgroundTransparency = Transparency
+	end
    end)
 end
 
