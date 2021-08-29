@@ -88,7 +88,7 @@ local TopBar = CoreGui:WaitForChild'TopBar'
 local Icon = TopBar:WaitForChild'TopBarFrame':WaitForChild'LeftFrame':WaitForChild'MenuIcon':WaitForChild'Background':WaitForChild'Icon'
 
 
-print'\nSynapse x loading screen done'
+print'\nSynapse x loading screen done' 
 
 
 Icon.Image = 'rbxassetid://2530517466'
