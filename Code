@@ -11,15 +11,34 @@ local BlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame'
 
 local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
 
-local PlaceIcon = BlackFrame:WaitForChild'InfoFrame':WaitForChild'PlaceIcon'
+local InfoFrame = BlackFrame:WaitForChild'InfoFrame'
+
+local PlaceIcon = InfoFrame:WaitForChild'PlaceIcon'
+
+local CreatorLabel = InfoFrame:WaitForChild'CreatorLabel'
+
+local PlaceLabel = InfoFrame:WaitForChild'PlaceLabel'
 
 
+
+
+PlaceLabel.Font = Enum.Font.SourceSansSemibold
+
+PlaceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+CreatorLabel.Font = Enum.Font.Code
+
+CreatorLabel.TextColor3 = Color3.fromRGB(112, 112, 112)
+
+CreatorLabel.TextStrokeTransparency = 0.5
 
 PlaceIcon.BorderColor3 = Color3.fromRGB(53,53,53)
 
 PlaceIcon.BorderSizePixel = 3
 
 PlaceIcon.BackgroundTransparency = 0
+
+PlaceIcon.BackgroundColor3 = Color3.fromRGB(0,0,0)
 
 LoadingImage.BackgroundColor3 = Color3.fromRGB(200,200,200)
 
