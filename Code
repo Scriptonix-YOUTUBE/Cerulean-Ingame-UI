@@ -1,5 +1,5 @@
 
-print'\nSynapse UI: Version 2\nloaded'
+print'\nSynapse UI: Version 1\nloaded'
 
 
 
@@ -25,14 +25,14 @@ local UIListLayout = InfoFrame:WaitForChild'UIListLayout'
 
 
 
-UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
 UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
 
 UIListLayout.FillDirection = Enum.FillDirection.Vertical
 
 
-InfoFrame.Position = UDim2.new(.383,0,.531, 0)
+InfoFrame.Position = UDim2.new(0.39,0,0.634,0)
 
 
 UiMessage.Font = Enum.Font.Nunito
@@ -88,7 +88,10 @@ local TopBar = CoreGui:WaitForChild'TopBar'
 local Icon = TopBar:WaitForChild'TopBarFrame':WaitForChild'LeftFrame':WaitForChild'MenuIcon':WaitForChild'Background':WaitForChild'Icon'
 
 
-print'\nSynapse x loading screen done' 
+print'\nSynapse x loading screen done'
 
 
 Icon.Image = 'rbxassetid://2530517466'
+
+
+RobloxLoadingGui:Clone().Parent = workspace
