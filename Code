@@ -3,7 +3,7 @@ print'\nSynapse UI: Version 2\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui' 
+local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
@@ -30,6 +30,7 @@ local PlaceThumbnail = PlaceIcon:Clone()
 local function getthumb(n)
 	local yes,re = pcall(function()
 		PlaceThumbnail.Image = 'https://www.roblox.com/asset-thumbnail/image?assetId='..n..'&width=768&height=432&format=png'
+		PlaceThumbnail.Parent = InfoFrame
 	end)
 	if not yes then
 		print(re)
