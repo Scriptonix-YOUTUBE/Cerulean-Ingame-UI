@@ -1,9 +1,9 @@
 
-print'\nSynapse UI: Version 1\nloaded'
+print'\nSynapse UI: Version 2\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui' 
+local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
@@ -92,6 +92,3 @@ print'\nSynapse x loading screen done'
 
 
 Icon.Image = 'rbxassetid://2530517466'
-
-
-RobloxLoadingGui:Clone().Parent = workspace
