@@ -27,6 +27,10 @@ local UIListLayout = InfoFrame:WaitForChild'UIListLayout'
 
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
 
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
+
+UIListLayout.FillDirection = Enum.FillDirection.Vertical
+
 
 InfoFrame.Position = UDim2.new(0.39,0,0.634,0)
 
