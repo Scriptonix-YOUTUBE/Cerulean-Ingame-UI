@@ -157,6 +157,8 @@ PlaceIcon.BackgroundColor3 = Color3.fromRGB(0,0,0)
 
 PlaceIcon.UISizeConstraint.MaxSize = Vector2.new(500,500)
 
+Transparency(PlaceIcon)
+
 
 LoadingImage.BackgroundColor3 = Color3.fromRGB(200,200,200)
 
@@ -166,8 +168,6 @@ LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
 
 
 BlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
-
-Transparency(BlackFrame)
 
 
 
