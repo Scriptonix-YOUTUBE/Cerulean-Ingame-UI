@@ -3,7 +3,7 @@ print'\nSynapse UI: Version 2\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui' 
+local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
@@ -47,7 +47,7 @@ PlaceThumbnail.UISizeConstraint.MaxSize = Vector2.new(2000,500)
 
 PlaceThumbnail.UIAspectRatioConstraint.AspectRatio = 2
 
-getthumb(game.GameId)
+getthumb(tostring(game.GameId))
 
 
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
