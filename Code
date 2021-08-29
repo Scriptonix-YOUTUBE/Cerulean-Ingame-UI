@@ -3,7 +3,7 @@ print'\nSynapse UI: Version 2\nloaded'
 
 
 
-local CoreGui = game:GetService'CoreGui' 
+local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
@@ -29,8 +29,7 @@ local PlaceThumbnail = PlaceIcon:Clone()
 
 local function getthumb(n)
 	local yes,re = pcall(function()
-		PlaceThumbnail.Image = 'https://www.roblox.com/asset-thumbnail/image?assetId='..n..'&width=768&height=432&format=png'
-		PlaceThumbnail.Parent = InfoFrame
+		PlaceThumbnail.Image = 'https://assetgame.roblox.com/Game/Tools/ThumbnailAsset.ashx?aid='..n..'&fmt=png&wd=420&ht=420'
 	end)
 	if not yes then
 		print(re)
@@ -49,7 +48,7 @@ PlaceThumbnail.UIAspectRatioConstraint.AspectRatio = 2
 
 PlaceThumbnail.ZIndex = 99999999
 
-getthumb(tostring(game.GameId))
+getthumb(tostring(game.PlaceId))
 
 
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
