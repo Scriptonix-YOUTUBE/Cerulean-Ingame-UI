@@ -86,7 +86,7 @@ local function createOtherFrame(m)
 end
 
 local function Transparency(o)
-   o:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
+   BlackFrame:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
 	local Transparency = BlackFrame.Transparency
 	o.BackgroundTransparency = Transparency
    end)
