@@ -19,18 +19,38 @@ local CreatorLabel = InfoFrame:WaitForChild'CreatorLabel'
 
 local PlaceLabel = InfoFrame:WaitForChild'PlaceLabel'
 
+local UiMessage = InfoFrame:WaitForChild'UiMessageFrame':WaitForChild'UiMessage'
+
+local UIListLayout = InfoFrame:WaitForChild'UIListLayout'
 
 
 
-PlaceLabel.Font = Enum.Font.SourceSansSemibold
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
 
-PlaceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+InfoFrame.Position = UDim2.new(0.39,0,0.634,0)
+
+
+UiMessage.Font = Enum.Font.Nunito
+
+UiMessage.TextXAlignment = Enum.TextXAlignment.Left
+
+
+CreatorLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 CreatorLabel.Font = Enum.Font.Code
 
 CreatorLabel.TextColor3 = Color3.fromRGB(112, 112, 112)
 
 CreatorLabel.TextStrokeTransparency = 1
+
+
+PlaceLabel.Font = Enum.Font.SourceSansSemibold
+
+PlaceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+PlaceLabel.TextXAlignment = Enum.TextXAlignment.Left
+
 
 PlaceIcon.BorderColor3 = Color3.fromRGB(53,53,53)
 
@@ -40,11 +60,13 @@ PlaceIcon.BackgroundTransparency = 0
 
 PlaceIcon.BackgroundColor3 = Color3.fromRGB(0,0,0)
 
+
 LoadingImage.BackgroundColor3 = Color3.fromRGB(200,200,200)
 
 LoadingImage.Image = 'rbxassetid://2093843497' 
 
 LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
+
 
 BlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
 
