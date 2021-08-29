@@ -37,8 +37,8 @@ local function getthumb(n)
 end
 
 local function createOtherFrame(m)
-	
-	local desc = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Description
+	local yes, re = pcall(function()
+	    local desc = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Description
 
 
 	local OtherFrame = Instance.new("Frame")
@@ -75,6 +75,23 @@ local function createOtherFrame(m)
 	UiMessagePadding.Name = "UiMessagePadding"
 	UiMessagePadding.Parent = OtherFrame
 	UiMessagePadding.PaddingBottom = UDim.new(0, 25)
+	
+	Transparency(OtherFrame)
+	Transparency(TextLabel)
+	end)
+	
+	if not yes then
+	    print(re)
+	end
+end
+
+local function Transparency(o)
+   o:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
+	local Transparency = o.Transparency
+	if Transparency ~= 0 then
+		o.BackgroundTransparency = Transparency
+	end
+   end)
 end
 
 
@@ -152,12 +169,7 @@ LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
 
 BlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
 
-BlackFrame:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
-	local Transparency = BlackFrame.Transparency
-	if Transparency ~= 0 then
-		PlaceIcon.BackgroundTransparency = Transparency
-	end
-end)
+Transparency(BlackFrame)
 
 
 
