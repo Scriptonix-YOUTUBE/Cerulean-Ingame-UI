@@ -255,7 +255,8 @@ end
 local function rotate(g)
 	if t then
 		t = false
-		local tween = TweenService:Create(g,TweenInfo.new(2),{Rotation = 360})
+		local p = g.Rotation == 0 and 360 or 0
+		local tween = TweenService:Create(g,TweenInfo.new(2),{Rotation = p})
 		tween:Play()
 		tween.Completed:Wait()
 		t = true
