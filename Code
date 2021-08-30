@@ -285,7 +285,7 @@ end)
 
 gui.ImageButton.MouseButton1Click:Connect(function()
 	if t then
-		rotate(gui)
 		keypress(Enum.KeyCode.Insert) 
+		rotate(gui)
 	end
 end)
