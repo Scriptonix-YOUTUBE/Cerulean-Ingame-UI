@@ -286,7 +286,7 @@ end)
 
 gui.ImageButton.MouseButton1Click:Connect(function()
 	if t then
-		keypress(VK_INSERT) 
+		keypress(0x2D) 
 		rotate(gui)
 	end
 end)
