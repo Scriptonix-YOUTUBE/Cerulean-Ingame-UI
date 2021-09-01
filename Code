@@ -7,7 +7,9 @@ local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
-local BlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame' 
+local OldBlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame' 
+
+local BlackFrame = Instance.new('ImageLabel',OldBlackFrame.Parent)
 
 local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
 
@@ -25,6 +27,10 @@ local UIListLayout = InfoFrame:WaitForChild'UIListLayout'
 
 local PlaceThumbnail = PlaceIcon:Clone()
 
+for _, v in pairs(OldBlackFrame:GetChildren()) do
+	v.Parent = BlackFrame
+end
+OldBlackFrame:Destroy()
 
 
 local function getthumb(n)
@@ -226,7 +232,7 @@ local function createGUI()
 	ImageButton.BackgroundTransparency = 1.000
 	ImageButton.Size = UDim2.new(1, 0, 1, 0)
 	ImageButton.Image = "rbxassetid://2093843497"
-	
+
 	return b
 end
 
