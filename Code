@@ -7,17 +7,9 @@ local CoreGui = game:GetService'CoreGui'
 
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
 
-local OldBlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame' 
+local BlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame' 
 
-local BlackFrame = Instance.new('ImageLabel',OldBlackFrame.Parent)
-
-
-for _, v in pairs(OldBlackFrame:GetChildren()) do
-	v.Parent = BlackFrame
-end
-OldBlackFrame:Destroy()
-
-
+local NewBlackFrame = Instance.new('ImageLabel',BlackFrame.Parent)
 
 local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
 
@@ -183,17 +175,18 @@ LoadingImage.Image = 'rbxassetid://7378759834'
 LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
 
 
-BlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
+BlackFrame.Transparency = 1
 
-BlackFrame.Size = UDim2.new(1,0,1,0)
 
-BlackFrame.Image = 'rbxassetid://7378504101'
+NewBlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
 
-BlackFrame.ScaleType = Enum.ScaleType.Tile
+NewBlackFrame.Size = UDim2.new(1,0,1,0)
 
-BlackFrame.TileSize = UDim2.new(.2,0,.4,0)
+NewBlackFrame.Image = 'rbxassetid://7378504101'
 
-BlackFrame.ZIndex = -9999999
+NewBlackFrame.ScaleType = Enum.ScaleType.Tile
+
+NewBlackFrame.TileSize = UDim2.new(.2,0,.4,0)
 
 
 
