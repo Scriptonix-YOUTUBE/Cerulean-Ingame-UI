@@ -11,6 +11,14 @@ local OldBlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame'
 
 local BlackFrame = Instance.new('ImageLabel',OldBlackFrame.Parent)
 
+
+for _, v in pairs(OldBlackFrame:GetChildren()) do
+	v.Parent = BlackFrame
+end
+OldBlackFrame:Destroy()
+
+
+
 local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
 
 local InfoFrame = BlackFrame:WaitForChild'InfoFrame' 
@@ -26,11 +34,6 @@ local UiMessage = InfoFrame:WaitForChild'UiMessageFrame':WaitForChild'UiMessage'
 local UIListLayout = InfoFrame:WaitForChild'UIListLayout'
 
 local PlaceThumbnail = PlaceIcon:Clone()
-
-for _, v in pairs(OldBlackFrame:GetChildren()) do
-	v.Parent = BlackFrame
-end
-OldBlackFrame:Destroy()
 
 
 local function getthumb(n)
