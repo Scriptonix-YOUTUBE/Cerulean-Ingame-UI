@@ -176,12 +176,16 @@ Transparency(PlaceIcon)
 
 LoadingImage.BackgroundColor3 = Color3.fromRGB(200,200,200)
 
-LoadingImage.Image = 'rbxassetid://2093843497' 
+LoadingImage.Image = 'rbxassetid://7378759834' 
 
 LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
 
 
 BlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
+
+BlackFrame.Size = UDim2.new(1,0,1,0)
+
+BlackFrame.Image = 'rbxassetid://7378504101'
 
 
 
@@ -201,7 +205,7 @@ local t = true
 print'\nSynapse x loading screen done'
 
 
-Icon.Image = 'rbxassetid://2530517466'
+Icon.Image = 'rbxassetid://7378759834'
 
 
 local function createGUI()
