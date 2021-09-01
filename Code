@@ -107,6 +107,8 @@ local function createOtherFrame(m)
 end
 
 
+RobloxLoadingGui.IgnoreGuiInset
+
 
 createOtherFrame(BlackFrame)
 
@@ -238,7 +240,7 @@ local function createGUI()
 	ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	ImageButton.BackgroundTransparency = 1.000
 	ImageButton.Size = UDim2.new(1, 0, 1, 0)
-	ImageButton.Image = "rbxassetid://2093843497"
+	ImageButton.Image = "rbxassetid://7378759834"
 
 	return b
 end
