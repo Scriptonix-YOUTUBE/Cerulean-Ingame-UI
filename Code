@@ -41,7 +41,7 @@ local function Transparency(o)
 	spawn(function()
 		if not game:IsLoaded()then game.Loaded:Wait()end
 		for i = 0, 1.05 ,0.05 do
-			game:GetService'RunService'.RenderStepped:Wait()
+			wait(0.5)
 			o.Transparency = i
 		end
 	end)
