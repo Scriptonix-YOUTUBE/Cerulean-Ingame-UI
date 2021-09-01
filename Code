@@ -188,6 +188,8 @@ NewBlackFrame.ScaleType = Enum.ScaleType.Tile
 
 NewBlackFrame.TileSize = UDim2.new(.2,0,.4,0)
 
+NewBlackFrame.ZIndex = -99999999
+
 
 
 local TopBar = CoreGui:WaitForChild'TopBar'
