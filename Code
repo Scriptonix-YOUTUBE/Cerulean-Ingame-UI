@@ -107,7 +107,7 @@ local function createOtherFrame(m)
 end
 
 
-RobloxLoadingGui.IgnoreGuiInset
+RobloxLoadingGui.IgnoreGuiInset = true
 
 
 createOtherFrame(BlackFrame)
