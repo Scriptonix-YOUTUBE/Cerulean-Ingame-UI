@@ -1,5 +1,5 @@
 
-print'\nSynapse UI: Version 1.2\nloaded' 
+print'\nOpus UI: Version 1.4\nloaded' 
 
 
 
@@ -44,6 +44,14 @@ local function Transparency(o)
 			o.TextTransparency = Transparency
 		else
 			o.BackgroundTransparency = Transparency
+		end
+	end)
+end
+
+local function invis(o)
+	BlackFrame:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
+		if o.Transparency ~= 1 then
+			o.Transparency = 1
 		end
 	end)
 end
@@ -177,6 +185,8 @@ LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
 
 BlackFrame.Transparency = 1
 
+invis(BlackFrame)
+
 
 NewBlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
 
@@ -205,7 +215,7 @@ local i = 1
 local t = true
 
 
-print'\nSynapse x loading screen done'
+print'\nOpus loading screen done'
 
 
 Icon.Image = 'rbxassetid://7378759834'
