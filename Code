@@ -38,12 +38,11 @@ local function getthumb(n)
 end
 
 local function Transparency(o)
-	BlackFrame:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
-		local Transparency = BlackFrame.BackgroundTransparency
-		if o:IsA('TextLabel') then
-			o.TextTransparency = Transparency
-		else
-			o.BackgroundTransparency = Transparency
+	spawn(function()
+		if not game:IsLoaded()then game.Loaded:Wait()end
+		for i = 0, 1.05 ,0.05 do
+			game:GetService'RunService'.RenderStepped:Wait()
+			o.Transparency = i
 		end
 	end)
 end
