@@ -199,6 +199,8 @@ NewBlackFrame.TileSize = UDim2.new(.2,0,.4,0)
 
 NewBlackFrame.ZIndex = -99999999
 
+Transparency(NewBlackFrame)
+
 
 
 local TopBar = CoreGui:WaitForChild'TopBar'
