@@ -1,319 +1,192 @@
 
-print'\nOpus UI: Version 1.4\nloaded' 
 
 
 
-local CoreGui = game:GetService'CoreGui' 
-
+local CoreGui = game.CoreGui
 local RobloxLoadingGui = CoreGui:WaitForChild'RobloxLoadingGui' 
-
 local BlackFrame = RobloxLoadingGui:WaitForChild'BlackFrame' 
-
-local NewBlackFrame = Instance.new('ImageLabel',BlackFrame.Parent)
-
-local LoadingImage = BlackFrame:WaitForChild'GraphicsFrame':WaitForChild'LoadingImage' 
-
 local InfoFrame = BlackFrame:WaitForChild'InfoFrame' 
-
-local PlaceIcon = InfoFrame:WaitForChild'PlaceIcon'
-
-local CreatorLabel = InfoFrame:WaitForChild'CreatorLabel'
-
 local PlaceLabel = InfoFrame:WaitForChild'PlaceLabel'
 
-local UiMessage = InfoFrame:WaitForChild'UiMessageFrame':WaitForChild'UiMessage'
+RobloxLoadingGui.Enabled = false
 
-local UIListLayout = InfoFrame:WaitForChild'UIListLayout'
+local Cerulean = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Holder = Instance.new("Frame")
+local Preview = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local PreviewHolder = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local PreviewItems = Instance.new("Frame")
+local UICorner_3 = Instance.new("UICorner")
+local UIPageLayout = Instance.new("UIPageLayout")
+local GameIcon = Instance.new("ImageLabel")
+local UICorner_4 = Instance.new("UICorner")
+local GameName = Instance.new("TextLabel")
+local UIPageLayout_2 = Instance.new("UIPageLayout")
+local UIPageLayout_3 = Instance.new("UIPageLayout")
+local LoadingImageHolder = Instance.new("Frame")
+local LoadingImage = Instance.new("ImageLabel")
+local UIPageLayout_4 = Instance.new("UIPageLayout")
 
-local PlaceThumbnail = PlaceIcon:Clone()
 
-
-local function getthumb(n)
-	local yes,re = pcall(function()
-		PlaceThumbnail.Image = 'https://assetgame.roblox.com/Game/Tools/ThumbnailAsset.ashx?aid='..n..'&fmt=png&wd=420&ht=420'
-	end)
-	if not yes then
-		print(re)
-	end
-end
-
-local function Transparency(o)
+local function setGameName(g)
 	spawn(function()
-		if not game:IsLoaded()then game.Loaded:Wait()end
-		for i = 0, 1.05 ,0.05 do
-			wait(0.5)
-			o.Transparency = i
+		while PlaceLabel do
+			g.Text = PlaceLabel.Text
+			game:GetService'RunService'.RenderStepped:Wait()
 		end
 	end)
 end
 
-local function invis(o)
-	BlackFrame:GetPropertyChangedSignal'BackgroundTransparency':Connect(function()
-		if o.Transparency ~= 1 then
-			o.Transparency = 1
+local function setRotation(g)
+	spawn(function()
+		while g do
+			g.Rotation = g.Rotation+10
+			game:GetService'RunService'.RenderStepped:Wait()
 		end
 	end)
 end
 
-local function createOtherFrame(m)
-	local yes, re = pcall(function()
-		local desc = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Description
-
-
-		local OtherFrame = Instance.new("Frame")
-		local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-		local TextLabel = Instance.new("TextLabel")
-		local UiMessagePadding = Instance.new("UIPadding")
-
-
-		OtherFrame.Name = "OtherFrame"
-		OtherFrame.Parent = m
-		OtherFrame.AnchorPoint = Vector2.new(1, 1)
-		OtherFrame.BackgroundColor3 = Color3.fromRGB(43,43,43)
-		OtherFrame.BorderColor3 = Color3.fromRGB(43,43,43)
-		OtherFrame.BorderSizePixel = 5
-		OtherFrame.Position = UDim2.new(0.892091691, 0, 0.598457098, 0)
-		OtherFrame.Size = UDim2.new(0.240514442, 0, 0.512000084, 0)
-		OtherFrame.ZIndex = 2
-
-		UIAspectRatioConstraint.Parent = OtherFrame
-
-		TextLabel.Parent = OtherFrame
-		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		TextLabel.BackgroundTransparency = 1.000
-		TextLabel.Position = UDim2.new(0.0377249122, 0, 0.0214355346, 0)
-		TextLabel.Size = UDim2.new(0, 291, 0, 301)
-		TextLabel.ZIndex = 9999
-		TextLabel.Text = desc
-		TextLabel.TextColor3 = Color3.fromRGB(239, 239, 239)
-		TextLabel.TextSize = 14.000
-		TextLabel.TextStrokeTransparency = 0.000
-		TextLabel.TextWrapped = true
-		TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-		TextLabel.TextYAlignment = Enum.TextYAlignment.Top
-
-		UiMessagePadding.Name = "UiMessagePadding"
-		UiMessagePadding.Parent = OtherFrame
-		UiMessagePadding.PaddingBottom = UDim.new(0, 25)
-
-		Transparency(OtherFrame)
-		Transparency(TextLabel)
+local function transparency(g)
+	spawn(function()
+		while g.Transparency < 1 do
+			g.Transparency = g.Transparency+.01
+			game:GetService'RunService'.RenderStepped:Wait()
+		end
 	end)
+end
 
-	if not yes then
-		print(re)
-	end
+local function imageTransparency(g)
+	spawn(function()
+		while g.ImageTransparency < 1 do
+			g.ImageTransparency = g.ImageTransparency+.01
+			game:GetService'RunService'.RenderStepped:Wait()
+		end
+	end)
+end
+
+local function textTransparency(g)
+	spawn(function()
+		while g.TextTransparency < 1 do
+			g.TextTransparency = g.TextTransparency+.01
+			game:GetService'RunService'.RenderStepped:Wait()
+		end
+		Cerulean:Destroy()
+	end)
 end
 
 
-RobloxLoadingGui.IgnoreGuiInset = true
+Cerulean.IgnoreGuiInset = true
+Cerulean.Name = "Cerulean"
+Cerulean.Parent = CoreGui
+Cerulean.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = Cerulean
+Main.BackgroundColor3 = Color3.fromRGB(44, 238, 241)
+Main.Size = UDim2.new(1, 0, 1, 0)
+
+Holder.Name = "Holder"
+Holder.Parent = Main
+Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Holder.BackgroundTransparency = 1.000
+Holder.Size = UDim2.new(1, 0, 1, 0)
+
+Preview.Name = "Preview"
+Preview.Parent = Holder
+Preview.BackgroundColor3 = Color3.fromRGB(10, 167, 162)
+Preview.Position = UDim2.new(0.39358601, 0, 0.366666675, 0)
+Preview.Size = UDim2.new(0, 291, 0, 167)
+
+UICorner.Parent = Preview
+
+PreviewHolder.Name = "PreviewHolder"
+PreviewHolder.Parent = Preview
+PreviewHolder.BackgroundColor3 = Color3.fromRGB(12, 212, 206)
+PreviewHolder.Position = UDim2.new(0.00526999775, 0, 0.00738525437, 0)
+PreviewHolder.Size = UDim2.new(0, 289, 0, 165)
+
+UICorner_2.Parent = PreviewHolder
+
+PreviewItems.Name = "PreviewItems"
+PreviewItems.Parent = PreviewHolder
+PreviewItems.BackgroundColor3 = Color3.fromRGB(12, 212, 206)
+PreviewItems.BackgroundTransparency = 1.000
+PreviewItems.Position = UDim2.new(0, 0, 0.0727272704, 0)
+PreviewItems.Size = UDim2.new(0, 289, 0, 153)
+
+UICorner_3.Parent = PreviewItems
+
+UIPageLayout.Parent = PreviewItems
+UIPageLayout.FillDirection = Enum.FillDirection.Vertical
+UIPageLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIPageLayout.Padding = UDim.new(0, -70)
+
+GameIcon.Name = "GameIcon"
+GameIcon.Parent = PreviewItems
+GameIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GameIcon.Position = UDim2.new(0.387543261, 0, 0, 0)
+GameIcon.Size = UDim2.new(0, 75, 0, 75)
+GameIcon.Image = 'rbxthumb://type=Asset&id='..game.PlaceId..'&w=150&h=150'
+
+UICorner_4.Parent = GameIcon
+
+GameName.Name = "GameName"
+GameName.Parent = PreviewItems
+GameName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GameName.BackgroundTransparency = 1.000
+GameName.Position = UDim2.new(0.153979242, 0, 0.547169805, 0)
+GameName.Size = UDim2.new(0, 200, 0, 42)
+GameName.Font = Enum.Font.Cartoon
+GameName.TextColor3 = Color3.fromRGB(255, 255, 255)
+GameName.TextScaled = true
+GameName.TextSize = 14.000
+GameName.TextStrokeTransparency = 0.700
+GameName.TextWrapped = true
+setGameName(GameName)
+
+UIPageLayout_2.Parent = PreviewHolder
+UIPageLayout_2.FillDirection = Enum.FillDirection.Vertical
+UIPageLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIPageLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIPageLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
+
+UIPageLayout_3.Parent = Holder
+UIPageLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIPageLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+UIPageLayout_3.VerticalAlignment = Enum.VerticalAlignment.Center
+
+LoadingImageHolder.Name = "LoadingImageHolder"
+LoadingImageHolder.Parent = Main
+LoadingImageHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LoadingImageHolder.BackgroundTransparency = 1.000
+LoadingImageHolder.Size = UDim2.new(0.973760962, 0, 0.946202517, 0)
+
+LoadingImage.Name = "LoadingImage"
+LoadingImage.Parent = LoadingImageHolder
+LoadingImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LoadingImage.BackgroundTransparency = 1.000
+LoadingImage.Position = UDim2.new(0.857836187, 0, 0.731657565, 0)
+LoadingImage.Size = UDim2.new(0, 100, 0, 100)
+LoadingImage.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+setRotation(LoadingImage)
+
+UIPageLayout_4.Parent = LoadingImageHolder
+UIPageLayout_4.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIPageLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+UIPageLayout_4.VerticalAlignment = Enum.VerticalAlignment.Bottom
+
 
-
-createOtherFrame(BlackFrame)
-
-
-PlaceThumbnail.Size = UDim2.new(.366,0,.55,0)
-
-PlaceThumbnail.Name = 'thumbstick'
-
-PlaceThumbnail.UISizeConstraint.MaxSize = Vector2.new(2000,500)
-
-PlaceThumbnail.UIAspectRatioConstraint.AspectRatio = 2
-
-PlaceThumbnail.ZIndex = 99999999
-
-getthumb(tostring(game.PlaceId))
-
-
-UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-
-UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
-
-UIListLayout.FillDirection = Enum.FillDirection.Vertical
-
-
-InfoFrame.Position = UDim2.new(0.5,0,0.5,0)
-
-InfoFrame.Size = UDim2.new(.817,0,.951,0)
-
-InfoFrame.UIAspectRatioConstraint.AspectRatio = 2
-
-
-UiMessage.Font = Enum.Font.Nunito
-
-UiMessage.TextXAlignment = Enum.TextXAlignment.Left
-
-
-CreatorLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-CreatorLabel.Font = Enum.Font.Code
-
-CreatorLabel.TextColor3 = Color3.fromRGB(112, 112, 112)
-
-CreatorLabel.TextStrokeTransparency = 1
-
-
-PlaceLabel.Font = Enum.Font.SourceSansSemibold
-
-PlaceLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-
-PlaceLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-PlaceLabel.Size = UDim2.new(1,0,.09,80)
-
-
-PlaceIcon.BorderColor3 = Color3.fromRGB(53,53,53)
-
-PlaceIcon.BorderSizePixel = 3
-
-PlaceIcon.BackgroundTransparency = 0
-
-PlaceIcon.BackgroundColor3 = Color3.fromRGB(0,0,0)
-
-PlaceIcon.UISizeConstraint.MaxSize = Vector2.new(500,500)
-
-Transparency(PlaceIcon)
-
-
-LoadingImage.BackgroundColor3 = Color3.fromRGB(200,200,200)
-
-LoadingImage.Image = 'rbxassetid://7378759834' 
-
-LoadingImage.ImageColor3 = Color3.fromRGB(180,180,180)
-
-
-BlackFrame.Transparency = 1
-
-invis(BlackFrame)
-
-
-NewBlackFrame.BackgroundColor3 = Color3.fromRGB(39,39,39) 
-
-NewBlackFrame.Size = UDim2.new(1,0,1,0)
-
-NewBlackFrame.Image = 'rbxassetid://7378504101'
-
-NewBlackFrame.ScaleType = Enum.ScaleType.Tile
-
-NewBlackFrame.TileSize = UDim2.new(.2,0,.4,0)
-
-NewBlackFrame.ZIndex = -99999999
-
-Transparency(NewBlackFrame)
-
-
-
-local TopBar = CoreGui:WaitForChild'TopBar'
-
-local Icon = TopBar:WaitForChild'TopBarFrame':WaitForChild'LeftFrame':WaitForChild'MenuIcon':WaitForChild'Background':WaitForChild'Icon'
-
-local TweenService = game:GetService'TweenService'
-
-local UIS = game:GetService'UserInputService'
-
-local i = 1
-
-local t = true
-
-
-print'\nOpus loading screen done'
-
-
-Icon.Image = 'rbxassetid://7378759834'
-
-
-local function createGUI()
-
-	local ScreenGui = Instance.new("ScreenGui")
-	local b = Instance.new("Frame")
-	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-	local UISizeConstraint = Instance.new("UISizeConstraint")
-	local ImageButton = Instance.new("ImageButton")
-
-
-	ScreenGui.Parent = game.CoreGui
-	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-	b.Name = "b"
-	b.Parent = ScreenGui
-	b.AnchorPoint = Vector2.new(1, 1)
-	b.BackgroundTransparency = 1.000
-	b.BorderSizePixel = 0
-	b.Position = UDim2.new(0, 0, 1, 0)
-	b.Size = UDim2.new(1.49300003, 0, 1.61399996, 0)
-	b.ZIndex = 2
-
-	UIAspectRatioConstraint.Parent = b
-
-	UISizeConstraint.Parent = b
-	UISizeConstraint.MaxSize = Vector2.new(100, 100)
-
-	ImageButton.Parent = b
-	ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ImageButton.BackgroundTransparency = 1.000
-	ImageButton.Size = UDim2.new(1, 0, 1, 0)
-	ImageButton.Image = "rbxassetid://7378759834"
-
-	return b
-end
-
-local function open(g)
-	if t then
-		t = false
-		local p = UDim2.new(.073,0,.998,0)
-		local tween = TweenService:Create(g,TweenInfo.new(2),{Position = p})
-		tween:Play()
-		tween.Completed:Wait()
-		t = true
-	end
-end
-
-local function close(g)
-	if t then
-		t = false
-		local p = UDim2.new(0,0,1,0)
-		local tween = TweenService:Create(g,TweenInfo.new(2),{Position = p})
-		tween:Play()
-		tween.Completed:Wait()
-		t = true
-	end
-end
-
-local function rotate(g)
-	if t then
-		t = false
-		local p = g.Rotation == 0 and 360 or 0
-		local tween = TweenService:Create(g,TweenInfo.new(2),{Rotation = p})
-		tween:Play()
-		tween.Completed:Wait()
-		t = true
-	end
-end
-
-
-local gui = createGUI()
-
-wait(3)
-
-open(gui)
-
-wait(3)
-
-UIS.InputBegan:Connect(function(key)
-	if (key.KeyCode == Enum.KeyCode.LeftControl and UIS:IsKeyDown(Enum.KeyCode.G)) or (key.KeyCode == Enum.KeyCode.G and UIS:IsKeyDown(Enum.KeyCode.LeftControl)) then
-		i = (i+1)%2
-		if i == 1 then
-			open(gui)
-		else 
-			close(gui)
+game.Loaded:Wait()
+for _, v in pairs(Cerulean:GetDescendants()) do
+	if v:IsA('GuiObject') then
+		transparency(v)
+		if v:IsA('TextLabel') then
+			textTransparency(v)
+		elseif v:IsA('ImageLabel') then
+			imageTransparency(v)
 		end
 	end
-end)
-
-
-gui.ImageButton.MouseButton1Click:Connect(function()
-	if t then
-		keypress(0x2D) 
-		rotate(gui) 
-	end
-end)
+end
