@@ -28,6 +28,10 @@ local UIPageLayout_3 = Instance.new("UIPageLayout")
 local LoadingImageHolder = Instance.new("Frame")
 local LoadingImage = Instance.new("ImageLabel")
 local UIPageLayout_4 = Instance.new("UIPageLayout")
+local DescriptionHolder = Instance.new("Frame")
+local yea = Instance.new("UIPageLayout")
+local Description = Instance.new("TextLabel")
+local UICornerer = Instance.new("UICorner")
 
 
 local function setGameName(g)
@@ -76,6 +80,15 @@ local function textTransparency(g)
 	end)
 end
 
+local function setDescription(g)
+	spawn(function()
+		local desc = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Description
+		if desc then
+			g.Text = desc
+		end
+	end)
+end
+
 
 Cerulean.IgnoreGuiInset = true
 Cerulean.Name = "Cerulean"
@@ -93,6 +106,35 @@ Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Holder.BackgroundTransparency = 1.000
 Holder.Size = UDim2.new(1, 0, 1, 0)
 
+DescriptionHolder.Name = "DescriptionHolder"
+DescriptionHolder.Parent = Main
+DescriptionHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DescriptionHolder.BackgroundTransparency = 1.000
+DescriptionHolder.Size = UDim2.new(0.973760903, 0, 0.742120862, 0)
+
+yea.Name = "yea"
+yea.Parent = DescriptionHolder
+yea.HorizontalAlignment = Enum.HorizontalAlignment.Right
+yea.SortOrder = Enum.SortOrder.LayoutOrder
+yea.VerticalAlignment = Enum.VerticalAlignment.Center
+yea.Circular = true
+
+Description.Name = "Description"
+Description.Parent = DescriptionHolder
+Description.BackgroundColor3 = Color3.fromRGB(12, 212, 206)
+Description.Position = UDim2.new(0.749814928, 0, 0.239715189, 0)
+Description.Size = UDim2.new(0,429,0,417)
+Description.Font = Enum.Font.SourceSans
+Description.Text = ""
+Description.TextColor3 = Color3.fromRGB(0, 0, 0)
+Description.TextSize = 30.000
+Description.TextWrapped = true
+Description.TextXAlignment = Enum.TextXAlignment.Left
+Description.TextYAlignment = Enum.TextYAlignment.Top
+setDescription(Description)
+
+UICornerer.Parent = Description
+
 Preview.Name = "Preview"
 Preview.Parent = Holder
 Preview.BackgroundColor3 = Color3.fromRGB(10, 167, 162)
@@ -104,8 +146,8 @@ UICorner.Parent = Preview
 PreviewHolder.Name = "PreviewHolder"
 PreviewHolder.Parent = Preview
 PreviewHolder.BackgroundColor3 = Color3.fromRGB(12, 212, 206)
-PreviewHolder.Position = UDim2.new(0.00526999775, 0, 0.00738525437, 0)
-PreviewHolder.Size = UDim2.new(0, 289, 0, 165)
+PreviewHolder.Position = UDim2.new(.007,0,.012,0)
+PreviewHolder.Size = UDim2.new(0,287,0,163)
 
 UICorner_2.Parent = PreviewHolder
 
