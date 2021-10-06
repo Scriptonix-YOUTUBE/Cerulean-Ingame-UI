@@ -222,6 +222,7 @@ UIPageLayout_4.VerticalAlignment = Enum.VerticalAlignment.Bottom
 
 
 game.Loaded:Wait()
+wait(3)
 for _, v in pairs(Cerulean:GetDescendants()) do
 	if v:IsA('GuiObject') then
 		transparency(v)
