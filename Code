@@ -39,8 +39,10 @@ local UICornerer = Instance.new("UICorner")
 local function setGameName(g)
 	spawn(function()
 		while PlaceLabel do
-			g.Text = PlaceLabel.Text
-			game:GetService'RunService'.RenderStepped:Wait()
+			if PlaceLabel.Text ~= 'Label' then
+				g.Text = PlaceLabel.Text
+				game:GetService'RunService'.RenderStepped:Wait()
+			end
 		end
 	end)
 end
@@ -182,7 +184,6 @@ GameIcon.Parent = PreviewItems
 GameIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GameIcon.Position = UDim2.new(0.387543261, 0, 0, 0)
 GameIcon.Size = UDim2.new(0, 75, 0, 75)
-GameIcon.Image = 'rbxthumb://type=Asset&id='..game.PlaceId..'&w=150&h=150'
 
 UICorner_4.Parent = GameIcon
 
