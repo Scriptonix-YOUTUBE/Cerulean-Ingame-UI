@@ -96,7 +96,6 @@ end
 local function setGameIcon(g,info)
 	spawn(function()
 		local icon = 'rbxassetid://' .. info.IconImageAssetId
-		print(icon)
 		if icon then
 			g.Image = icon
 		end
