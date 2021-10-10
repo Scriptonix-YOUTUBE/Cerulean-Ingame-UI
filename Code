@@ -193,6 +193,7 @@ GameName.BackgroundTransparency = 1.000
 GameName.Position = UDim2.new(0.153979242, 0, 0.547169805, 0)
 GameName.Size = UDim2.new(0, 200, 0, 42)
 GameName.Font = Enum.Font.Cartoon
+GameName.Text = ''
 GameName.TextColor3 = Color3.fromRGB(255, 255, 255)
 GameName.TextScaled = true
 GameName.TextSize = 14.000
@@ -232,6 +233,7 @@ UIPageLayout_4.VerticalAlignment = Enum.VerticalAlignment.Bottom
 
 local info = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId)
 
+setGameName(GameName)
 setRotation(LoadingImage)
 setDescription(Description,info)
 setGameIcon(GameIcon,info)
