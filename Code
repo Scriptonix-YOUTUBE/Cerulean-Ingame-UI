@@ -41,7 +41,7 @@ local function setGameName(g)
 		while PlaceLabel do
 			if PlaceLabel.Text ~= 'Label' then
 				g.Text = PlaceLabel.Text
-				game:GetService'RunService'.RenderStepped:Wait()
+				game:GetService'RunService'.RenderStepped:Wait() 
 			end
 		end
 	end)
