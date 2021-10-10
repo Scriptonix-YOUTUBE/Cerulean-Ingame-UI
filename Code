@@ -1,4 +1,6 @@
-
+--[[
+    Made by timothytheawesome (Scriptonix#6957)
+--]]
 
 
 
@@ -80,11 +82,20 @@ local function textTransparency(g)
 	end)
 end
 
-local function setDescription(g)
+local function setDescription(g,info)
 	spawn(function()
-		local desc = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Description
+		local desc = info.Description
 		if desc then
 			g.Text = desc
+		end
+	end)
+end
+
+local function setGameIcon(g,info)
+	spawn(function()
+		local icon = info.IconImageAssetId
+		if icon then
+			g.Image = icon
 		end
 	end)
 end
@@ -131,7 +142,6 @@ Description.TextSize = 30.000
 Description.TextWrapped = true
 Description.TextXAlignment = Enum.TextXAlignment.Left
 Description.TextYAlignment = Enum.TextYAlignment.Top
-setDescription(Description)
 
 UICornerer.Parent = Description
 
@@ -187,7 +197,6 @@ GameName.TextScaled = true
 GameName.TextSize = 14.000
 GameName.TextStrokeTransparency = 0.700
 GameName.TextWrapped = true
-setGameName(GameName)
 
 UIPageLayout_2.Parent = PreviewHolder
 UIPageLayout_2.FillDirection = Enum.FillDirection.Vertical
@@ -213,12 +222,18 @@ LoadingImage.BackgroundTransparency = 1.000
 LoadingImage.Position = UDim2.new(0.857836187, 0, 0.731657565, 0)
 LoadingImage.Size = UDim2.new(0, 100, 0, 100)
 LoadingImage.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
-setRotation(LoadingImage)
 
 UIPageLayout_4.Parent = LoadingImageHolder
 UIPageLayout_4.HorizontalAlignment = Enum.HorizontalAlignment.Right
 UIPageLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
 UIPageLayout_4.VerticalAlignment = Enum.VerticalAlignment.Bottom
+
+
+local info = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId)
+
+setRotation(LoadingImage)
+setDescription(Description,info)
+setGameIcon(GameIcon,info)
 
 
 game.Loaded:Wait()
