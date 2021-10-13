@@ -96,9 +96,7 @@ end
 local function setGameIcon(g,info)
 	spawn(function()
 		local icon = 'rbxassetid://' .. info.IconImageAssetId
-		if icon then
-			g.Image = icon
-		end
+		g.Image = icon
 	end)
 end
 
@@ -231,7 +229,16 @@ UIPageLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
 UIPageLayout_4.VerticalAlignment = Enum.VerticalAlignment.Bottom
 
 
-local info = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId)
+local info
+
+local yes, re = pcall(function()
+     info = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId)
+end)
+
+if not yes then
+    print(re)
+    info = {Description='',IconImageAssetId=''}
+end
 
 setGameName(GameName)
 setRotation(LoadingImage)
